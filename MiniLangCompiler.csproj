@@ -5,13 +5,7 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <PublishReadyToRun>false</PublishReadyToRun>
-    <PublishSingleFile>false</PublishSingleFile>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Include="bin\Debug\net9.0\test.minilang" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Antlr4.Runtime.Standard" Version="4.13.1" />

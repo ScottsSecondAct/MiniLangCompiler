@@ -2,7 +2,7 @@
   "profiles": {
     "MiniLangCompiler": {
       "commandName": "Project",
-      "commandLineArgs": "test.minilang --out test.exe"
+      "commandLineArgs": "test.minilang -o test.exe "
     }
   }
 }

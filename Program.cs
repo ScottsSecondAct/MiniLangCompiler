@@ -2,10 +2,8 @@
 using Antlr4.Runtime;
 
 string? inputFile = null;
-string outputFile = "MiniLangApp.exe";
+string outputFile = "no_file_name_provided.dll";
 bool showHelp = false;
-bool autoRun = false;
-bool debug = false;
 
 // --- Parse command-line arguments ---
 for (int i = 0; i < args.Length; i++)
@@ -22,12 +20,6 @@ for (int i = 0; i < args.Length; i++)
         outputFile = args[++i];
       else
         Console.WriteLine("Missing output file name after --out");
-      break;
-    case "--run":
-      autoRun = true;
-      break;
-    case "--debug":
-      debug = true;
       break;
     default:
       if (args[i].EndsWith(".minilang"))
