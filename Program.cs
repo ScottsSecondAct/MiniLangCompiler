@@ -48,8 +48,6 @@ if (showHelp)
 
         Options:
           -o, --out       Set output file name (default: MiniLangApp.exe)
-          --run           Automatically run the generated executable
-          --debug         Show token stream and AST output
           -h, --help      Show this help message
 
         Notes:
@@ -81,18 +79,6 @@ var lexer = new MiniLangLexer(inputStream);
 var tokens = new CommonTokenStream(lexer);
 var parser = new MiniLangParser(tokens);
 
-if (debug)
-{
-  Console.WriteLine("Token Stream:");
-  tokens.Fill();
-  foreach (var token in tokens.GetTokens())
-    Console.WriteLine($"  {token}");
-
-  Console.WriteLine("\nParse Tree:");
-  Console.WriteLine(parser.program().ToStringTree(parser));
-  Console.WriteLine();
-}
-
 // Reset stream before parsing again
 tokens.Reset();
 var tree = parser.program();
@@ -107,28 +93,5 @@ Console.WriteLine(generatedCode);
 Console.WriteLine(new string('-', 30));
 
 // --- Emit executable ---
-//Console.WriteLine($"Emitting: {outputFile}");
 CSharpEmitter.EmitExecutable(generatedCode, outputFile);
-//Console.WriteLine("Compilation complete.");
-
-// --- Auto-run if requested ---
-if (autoRun)
-{
-  Console.WriteLine($"\nRunning: {outputFile}\n");
-  try
-  {
-    var process = Process.Start(new ProcessStartInfo
-    {
-      FileName = outputFile,
-      RedirectStandardOutput = false,
-      UseShellExecute = true
-    });
-
-    process?.WaitForExit();
-  }
-  catch (Exception ex)
-  {
-    Console.WriteLine($"Could not run output: {ex.Message}");
-  }
-}
 
