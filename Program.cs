@@ -76,13 +76,13 @@ tokens.Reset();
 var tree = parser.program();
 
 // --- Compile to C# ---
-var visitor = new MiniLangCompiler();
-var generatedCode = visitor.Visit(tree);
+var minLangCompiler = new MiniLangCompiler();
+var generatedCode = minLangCompiler.Visit(tree);
 
-Console.WriteLine("Generated C# code:");
-Console.WriteLine(new string('-', 30));
-Console.WriteLine(generatedCode);
-Console.WriteLine(new string('-', 30));
+//Console.WriteLine("Generated C# code:");
+//Console.WriteLine(new string('-', 30));
+//Console.WriteLine(generatedCode);
+//Console.WriteLine(new string('-', 30));
 
 // --- Emit executable ---
 CSharpEmitter.EmitExecutable(generatedCode, outputFile);

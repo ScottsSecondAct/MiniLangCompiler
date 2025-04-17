@@ -1,5 +1,13 @@
-let score = 85;
+score = 85;
 
+print(score);
 if (score >= 60) {
-  print score;
+  print (score);
+}
+
+int count = 5;
+while(count > 0)
+{
+  print(count);
+  count = count - 1;
 }

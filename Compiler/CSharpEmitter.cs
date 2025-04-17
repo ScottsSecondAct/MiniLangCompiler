@@ -19,6 +19,11 @@ public class Program
 }}";
 
     var syntaxTree = CSharpSyntaxTree.ParseText(fullCode);
+    var root = syntaxTree.GetRoot().NormalizeWhitespace();
+    Console.WriteLine("Generated C# code:");
+    Console.WriteLine(new string('-', 30));
+    Console.WriteLine(root.ToFullString());
+    Console.WriteLine(new string('-', 30));
 
     List<MetadataReference> references = new List<MetadataReference>()
     {

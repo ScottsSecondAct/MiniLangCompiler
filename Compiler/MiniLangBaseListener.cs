@@ -60,6 +60,18 @@ public partial class MiniLangBaseListener : IMiniLangListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitStatement([NotNull] MiniLangParser.StatementContext context) { }
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="MiniLangParser.declStmt"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterDeclStmt([NotNull] MiniLangParser.DeclStmtContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="MiniLangParser.declStmt"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitDeclStmt([NotNull] MiniLangParser.DeclStmtContext context) { }
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="MiniLangParser.assignStmt"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
@@ -72,17 +84,17 @@ public partial class MiniLangBaseListener : IMiniLangListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitAssignStmt([NotNull] MiniLangParser.AssignStmtContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="MiniLangParser.printStmt"/>.
+	/// Enter a parse tree produced by <see cref="MiniLangParser.exprStmt"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterPrintStmt([NotNull] MiniLangParser.PrintStmtContext context) { }
+	public virtual void EnterExprStmt([NotNull] MiniLangParser.ExprStmtContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="MiniLangParser.printStmt"/>.
+	/// Exit a parse tree produced by <see cref="MiniLangParser.exprStmt"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitPrintStmt([NotNull] MiniLangParser.PrintStmtContext context) { }
+	public virtual void ExitExprStmt([NotNull] MiniLangParser.ExprStmtContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="MiniLangParser.ifStmt"/>.
 	/// <para>The default implementation does nothing.</para>
@@ -95,6 +107,30 @@ public partial class MiniLangBaseListener : IMiniLangListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitIfStmt([NotNull] MiniLangParser.IfStmtContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="MiniLangParser.whileStatement"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterWhileStatement([NotNull] MiniLangParser.WhileStatementContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="MiniLangParser.whileStatement"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitWhileStatement([NotNull] MiniLangParser.WhileStatementContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="MiniLangParser.block"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterBlock([NotNull] MiniLangParser.BlockContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="MiniLangParser.block"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitBlock([NotNull] MiniLangParser.BlockContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>MulDivExpr</c>
 	/// labeled alternative in <see cref="MiniLangParser.expr"/>.
@@ -166,6 +202,20 @@ public partial class MiniLangBaseListener : IMiniLangListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitParensExpr([NotNull] MiniLangParser.ParensExprContext context) { }
 	/// <summary>
+	/// Enter a parse tree produced by the <c>CallExpr</c>
+	/// labeled alternative in <see cref="MiniLangParser.expr"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterCallExpr([NotNull] MiniLangParser.CallExprContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>CallExpr</c>
+	/// labeled alternative in <see cref="MiniLangParser.expr"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitCallExpr([NotNull] MiniLangParser.CallExprContext context) { }
+	/// <summary>
 	/// Enter a parse tree produced by the <c>AddSubExpr</c>
 	/// labeled alternative in <see cref="MiniLangParser.expr"/>.
 	/// <para>The default implementation does nothing.</para>
@@ -179,6 +229,18 @@ public partial class MiniLangBaseListener : IMiniLangListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitAddSubExpr([NotNull] MiniLangParser.AddSubExprContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="MiniLangParser.type"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterType([NotNull] MiniLangParser.TypeContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="MiniLangParser.type"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitType([NotNull] MiniLangParser.TypeContext context) { }
 
 	/// <inheritdoc/>
 	/// <remarks>The default implementation does nothing.</remarks>
