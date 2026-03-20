@@ -75,9 +75,11 @@ var parser = new MiniLangParser(tokens);
 tokens.Reset();
 var tree = parser.program();
 
-// --- Compile to C# ---
-var minLangCompiler = new MiniLangCompiler();
-var generatedCode = minLangCompiler.Visit(tree);
+// --- Build AST ---
+var ast = (ProgramNode)new AstBuilder().Visit(tree);
+
+// --- Generate C# from AST ---
+var generatedCode = new CSharpCodeGen().Generate(ast);
 
 //Console.WriteLine("Generated C# code:");
 //Console.WriteLine(new string('-', 30));

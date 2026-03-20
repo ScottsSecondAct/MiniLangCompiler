@@ -1,4 +1,4 @@
-score = 85;
+int score = 85;
 
 print(score);
 if (score >= 60) {
