@@ -1,4 +1,3 @@
-﻿using System.Diagnostics;
 using Antlr4.Runtime;
 
 string? inputFile = null;
@@ -16,6 +15,7 @@ for (int i = 0; i < args.Length; i++)
       break;
     case "--out":
     case "-o":
+      // Consume the next argument as the output file name
       if (i + 1 < args.Length)
         outputFile = args[++i];
       else
@@ -61,31 +61,29 @@ if (inputFile != null)
 }
 else
 {
+  // Fall back to stdin when no file argument is provided
   Console.WriteLine("Reading MiniLang from stdin. Press Ctrl+D (Linux/macOS) or Ctrl+Z (Windows) to finish.");
   source = Console.In.ReadToEnd();
 }
 
 // --- Lex & Parse ---
+// Feed source into ANTLR to produce a parse tree
 var inputStream = new AntlrInputStream(source);
 var lexer = new MiniLangLexer(inputStream);
 var tokens = new CommonTokenStream(lexer);
 var parser = new MiniLangParser(tokens);
 
-// Reset stream before parsing again
 tokens.Reset();
 var tree = parser.program();
 
 // --- Build AST ---
+// Convert the ANTLR parse tree into a typed, immutable AST
 var ast = (ProgramNode)new AstBuilder().Visit(tree);
 
 // --- Generate C# from AST ---
+// Walk the AST and emit equivalent C# source code
 var generatedCode = new CSharpCodeGen().Generate(ast);
 
-//Console.WriteLine("Generated C# code:");
-//Console.WriteLine(new string('-', 30));
-//Console.WriteLine(generatedCode);
-//Console.WriteLine(new string('-', 30));
-
 // --- Emit executable ---
+// Compile the C# source to a .dll via Roslyn
 CSharpEmitter.EmitExecutable(generatedCode, outputFile);
-
