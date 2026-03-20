@@ -1,5 +1,5 @@
 # MiniLangCompiler
-[![Open Source](https://img.shields.io/badge/Open%20Source-Yes-green.svg)](https://github.com/ScottsSecondAct/MiniLangCompiler) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) ![AI Assisted](https://img.shields.io/badge/AI%20Assisted-Claude-blue?logo=anthropic)
+[![Open Source](https://img.shields.io/badge/Open%20Source-Yes-green.svg)](https://github.com/ScottsSecondAct/MiniLangCompiler) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) ![AI Assisted](https://img.shields.io/badge/AI%20Assisted-Claude-blue?logo=anthropic) [![Build](https://github.com/ScottsSecondAct/MiniLangCompiler/actions/workflows/build.yml/badge.svg)](https://github.com/ScottsSecondAct/MiniLangCompiler/actions/workflows/build.yml)
 
 Just noodling around with [ANTLR4](https://www.antlr.org/) and Roslyn. This is a toy compiler for a small made-up language (MiniLang) that compiles to a .NET assembly.
 
